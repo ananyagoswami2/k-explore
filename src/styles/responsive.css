@@ -1,0 +1,143 @@
+/* Ultra-Luxury Responsive Grids & Layout Overrides */
+
+/* Header / Navbar */
+.nav-header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background-color: rgba(246, 243, 237, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color var(--motion-normal) var(--ease-luxury), border-color var(--motion-normal) var(--ease-luxury);
+}
+
+[data-theme="dark"] .nav-header {
+  background-color: rgba(17, 19, 18, 0.88);
+  border-bottom-color: var(--color-border);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-height);
+  gap: 20px;
+}
+
+/* Event Grid Responsive Layout */
+.events-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+@media (min-width: 640px) {
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1040px) {
+  .events-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+
+/* Featured Event Layout */
+.featured-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 64px;
+  transition: transform var(--motion-normal) var(--ease-luxury), box-shadow var(--motion-normal) var(--ease-luxury);
+}
+
+@media (min-width: 960px) {
+  .featured-card {
+    grid-template-columns: 1.25fr 1fr;
+  }
+}
+
+/* Details Modal Responsive */
+.details-dialog {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-modal);
+  animation: modalSlideUp 350ms var(--ease-luxury);
+  position: relative;
+}
+
+/* Registration Modal Responsive */
+.registration-dialog {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  width: 100%;
+  max-width: 620px;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-modal);
+  animation: modalSlideUp 350ms var(--ease-luxury);
+  position: relative;
+}
+
+/* Mobile Drawer */
+.mobile-menu-drawer {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-elevated);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  z-index: 899;
+  animation: fadeIn 200ms ease-out;
+}
+
+/* Responsive Hide/Show Helpers */
+.hide-mobile {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .hide-mobile {
+    display: flex !important;
+  }
+  .show-mobile-only {
+    display: none !important;
+  }
+}
+
+/* Print styles for Bespoke Ticket Pass */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  .nav-header, footer, .btn, .modal-backdrop {
+    display: none !important;
+  }
+  .printable-ticket {
+    display: block !important;
+    box-shadow: none !important;
+    border: 1px solid #1C1D1B !important;
+    padding: 32px !important;
+    margin: 0 auto !important;
+    max-width: 600px !important;
+  }
+}
